@@ -1,0 +1,36 @@
+body{
+    text-align: center;
+    margin: 0;
+}
+img{
+    object-fit: cover;
+}
+.et__image_small{
+    width: 250px;
+    height: 200px;
+    margin: 60px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 20px #888;
+    transition-duration: 400ms;
+    object-fit: cover;
+}
+.et__image_small:hover{
+    box-shadow: 5px 5px 30px #555;
+    transform: translateY(-10px);
+    cursor: pointer;
+}
+
+.et__image_wrap{
+    position: absolute;
+    top: 0;
+    background-color: #e1e1e1;
+    width:100%;
+    height: 100%;
+    cursor: url(images/close.png), auto;
+}
+.et__image_big{
+    position: absolute;
+    top: 20%;
+    transition: all 5s ease-in-out;
+    left: calc(50% - 400px);
+}
