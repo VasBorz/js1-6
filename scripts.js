@@ -57,22 +57,21 @@ for (let key in products){
     h3.innerHTML = products[key][1];
     span.innerHTML = products[key][2];
     button.innerHTML = 'Purchase';
+    el.innerHTML = img.outerHTML + h3.outerHTML + span.outerHTML;
 
     button.onclick = function(e){
-        let price = e.target.parentNode.querySelector('span').cloneNode(true),
+        var price = e.target.parentNode.querySelector('span').cloneNode(true),
             img = e.target.parentNode.querySelector('img').cloneNode(true),
             title = e.target.parentNode.querySelector('h3').cloneNode(true),
-            el = document.querySelector('.et_second_task__basket'),
+            el2 = document.querySelector('.et_second_task__basket'),
             div = document.createElement('div');
-
         div.className = 'et_second_task__basket_product';
         div.innerHTML += img.outerHTML + title.outerHTML + price.outerHTML;
-
         div.onclick = function () { div.remove(); total(); };
-        el.prepend(div);
+        el2.prepend(div);
         total();
     };
-    el.innerHTML += img.outerHTML + h3.outerHTML + span.outerHTML + button.outerHTML;
+    el.append(button);
     divSecond.append(el);
 }
 
@@ -96,9 +95,8 @@ document.querySelector('.et_slider span:first-child').onclick = slider;
 function slider (e) {
     let el = document.querySelector('.et_slider__active'),
         el2 = document.querySelectorAll('.et_slider__slide');
-    console.log(el);
-    el.className = 'et_slider__slide';
 
+    el.className = 'et_slider__slide';
     if(e.target.innerText.indexOf('Next') === 0){
         if(el.nextElementSibling.tagName === 'IMG'){
             el.nextElementSibling.className = 'et_slider__active';
