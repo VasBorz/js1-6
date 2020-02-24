@@ -60,7 +60,7 @@ for (let key in products){
     el.innerHTML = img.outerHTML + h3.outerHTML + span.outerHTML;
 
     button.onclick = function(e){
-        var price = e.target.parentNode.querySelector('span').cloneNode(true),
+        let price = e.target.parentNode.querySelector('span').cloneNode(true),
             img = e.target.parentNode.querySelector('img').cloneNode(true),
             title = e.target.parentNode.querySelector('h3').cloneNode(true),
             el2 = document.querySelector('.et_second_task__basket'),
