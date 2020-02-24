@@ -93,7 +93,7 @@ function total() {
     var el = document.querySelector('.et_second_task__basket_subtotal h2'),
         price = document.querySelectorAll('.et_second_task__basket .et_second_task__basket_product span'),
         total = 0;
-    for (let i = 0; i <= price.length - 1; i++) {
+        for (let i = 0; i <= price.length - 1; i++) {
         total += +price[i].innerHTML;
     }
      el.innerHTML = 'Subtotal: ' + total.toFixed(2);
@@ -102,3 +102,36 @@ function total() {
 // 3. *Добавить в галерею функцию перехода к следующему изображению.
 // По сторонам от большой картинки должны быть стрелки «вперед» и «назад»,
 // по нажатию на которые происходит замена изображения на следующее или предыдущее.
+
+var next = document.querySelector('.et_slider span:last-child'),
+    previous = document.querySelector('.et_slider span:first-child');
+
+previous.onclick = slider;
+next.onclick = slider;
+
+function slider (e) {
+    let el = document.querySelector('.et_slider__active');
+
+    if(e.target.innerText.indexOf('Next') === 0){
+        if(el.nextElementSibling.tagName === 'IMG'){
+            el.className = 'et_slider__slide';
+            el.nextElementSibling.className = 'et_slider__active';
+        }else{
+            var el2 = document.querySelectorAll('.et_slider__slide');
+
+            el.className = 'et_slider__slide';
+            el2[0].className = 'et_slider__active';
+        }
+    }else{
+        if(el.previousElementSibling.tagName === 'IMG'){
+            el.className = 'et_slider__slide';
+            el.previousElementSibling.className = 'et_slider__active';
+        }else{
+            var el3 = document.querySelectorAll('.et_slider__slide');
+
+            el.className = 'et_slider__slide';
+            el3[el3.length-1].className = 'et_slider__active';
+        }
+    }
+
+}

@@ -3,6 +3,8 @@ body{
     margin: 0;
     font-family: 'Poppins', sans-serif;
     color: #222;
+    display: grid;
+    grid-row-gap: 100px;
 }
 img{
     object-fit: cover;
@@ -100,4 +102,43 @@ img{
 }
 .et_second_task__basket_product h3{
     margin: 0;
+}
+.et_slider{
+    position: relative;
+    margin: 80px;
+}
+.et_slider span{
+    display: inline-block;
+    position: absolute;
+    top: calc(50% - 10px);
+    transition-duration: 400ms;
+    font-size: 1.4em;
+}
+.et_slider span:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    color: #888888;
+    transform: translateX(-15px);
+}
+.et_slider span:first-child{
+    left: 30%;
+    z-index: 1;
+}
+.et_slider span:first-child:hover{
+    transform: translateX(+15px);
+}
+.et_slider span:last-child{
+    right: 30%;
+}
+.et_slider__slide{
+    opacity: 0;
+    max-height: 350px;
+}
+.et_slider__active{
+    position: absolute;
+    left: calc(50% - 130px);
+    opacity: 1;
+    transition-duration: 600ms;
+    transform: translateY(-10px);
+
 }
