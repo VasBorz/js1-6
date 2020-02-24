@@ -5,50 +5,45 @@ let imgs = [
     'space_1.jpg',
     'space_2.jpg',
     'space_3.jpg'
-],
+    ],
     divFirst = document.querySelector(".et_first_task");
 
-
-for(let i = 0; i <= imgs.length-1; i++){
+for (let i = 0; i <= imgs.length-1; i++) {
     let el = document.createElement('img');
 
     el.src = 'images/small/' + imgs[i];
     el.setAttribute('data','images/' +imgs[i]);
     el.className = 'et__image_small';
 
-    el.onclick = function(e){
+    el.onclick = function (e){
         let el = document.createElement('img'),
             div = document.createElement('div');
 
         div.className = 'et__image_wrap';
         el.className = 'et__image_big';
         el.src = e.target.attributes.data.value;
-        div.onclick = function (e){
-            div.remove();
-        };
-        el.onerror = function (e) {
+        div.onclick = function () { div.remove(); };
+        el.onerror = function () {
             alert('Such Image does\'t existing');
             div.remove();
         };
         div.append(el);
         divFirst.append(div);
 
-    }
-
+    };
     divFirst.append(el);
 }
-
 
 // 2. Реализовать модуль корзины. Создать блок товаров и блок корзины.
 // У каждого товара есть кнопка «Купить», при нажатии на которую происходит добавление имени и цены товара в блок корзины.
 // Корзина должна уметь считать общую сумму заказа.
 
-let divSecond = document.querySelector(".et_second_task__products");
-let products = {
-    product1 : ['9390390802_2_1_8.jpg', 'Rag & Bone Beck Coat', 249.33],
-    product2 : ['9596322500_2_1_8_2.jpg', 'Oversize Drawstring Sweatshirt', 54.78],
-    product3 : ['9714513505_2_1_8.jpg', 'Basic Short Sleeve T-shirt', 354.99]
-};
+let divSecond = document.querySelector(".et_second_task__products"),
+    products = {
+                product1 : ['9390390802_2_1_8.jpg', 'Rag & Bone Beck Coat', 249.33],
+                product2 : ['9596322500_2_1_8_2.jpg', 'Oversize Drawstring Sweatshirt', 54.78],
+                product3 : ['9714513505_2_1_8.jpg', 'Basic Short Sleeve T-shirt', 354.99]
+    };
 
 for (let key in products){
     let el = document.createElement('div'),
@@ -71,26 +66,18 @@ for (let key in products){
             div = document.createElement('div');
 
         div.className = 'et_second_task__basket_product';
-        div.append(img);
-        div.append(title);
-        div.append(price);
-        div.onclick = function (e) {
-           div.remove();
-           total();
-        };
+        div.innerHTML += img.outerHTML + title.outerHTML + price.outerHTML;
+
+        div.onclick = function () { div.remove(); total(); };
         el.prepend(div);
         total();
     };
-
-    el.append(img);
-    el.append(h3);
-    el.append(span);
-    el.append(button);
+    el.innerHTML += img.outerHTML + h3.outerHTML + span.outerHTML + button.outerHTML;
     divSecond.append(el);
 }
 
 function total() {
-    var el = document.querySelector('.et_second_task__basket_subtotal h2'),
+    let el = document.querySelector('.et_second_task__basket_subtotal h2'),
         price = document.querySelectorAll('.et_second_task__basket .et_second_task__basket_product span'),
         total = 0;
         for (let i = 0; i <= price.length - 1; i++) {
@@ -103,35 +90,26 @@ function total() {
 // По сторонам от большой картинки должны быть стрелки «вперед» и «назад»,
 // по нажатию на которые происходит замена изображения на следующее или предыдущее.
 
-var next = document.querySelector('.et_slider span:last-child'),
-    previous = document.querySelector('.et_slider span:first-child');
-
-previous.onclick = slider;
-next.onclick = slider;
+document.querySelector('.et_slider span:last-child').onclick = slider;
+document.querySelector('.et_slider span:first-child').onclick = slider;
 
 function slider (e) {
-    let el = document.querySelector('.et_slider__active');
+    let el = document.querySelector('.et_slider__active'),
+        el2 = document.querySelectorAll('.et_slider__slide');
+    console.log(el);
+    el.className = 'et_slider__slide';
 
     if(e.target.innerText.indexOf('Next') === 0){
         if(el.nextElementSibling.tagName === 'IMG'){
-            el.className = 'et_slider__slide';
             el.nextElementSibling.className = 'et_slider__active';
         }else{
-            var el2 = document.querySelectorAll('.et_slider__slide');
-
-            el.className = 'et_slider__slide';
             el2[0].className = 'et_slider__active';
         }
     }else{
         if(el.previousElementSibling.tagName === 'IMG'){
-            el.className = 'et_slider__slide';
             el.previousElementSibling.className = 'et_slider__active';
         }else{
-            var el3 = document.querySelectorAll('.et_slider__slide');
-
-            el.className = 'et_slider__slide';
-            el3[el3.length-1].className = 'et_slider__active';
+            el2[el2.length-1].className = 'et_slider__active';
         }
     }
-
 }

@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9a99722d-6e64-45d3-bb53-db900d7413e8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
@@ -51,7 +50,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1582465027064</updated>
-      <workItem from="1582465028485" duration="24325000" />
+      <workItem from="1582465028485" duration="26640000" />
     </task>
     <servers />
   </component>
@@ -60,5 +59,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1527" y="324" width="838" height="1032" key="search.everywhere.popup" timestamp="1582562643211">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="1527" y="324" width="838" height="1032" key="search.everywhere.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1582562643211" />
   </component>
 </project>
